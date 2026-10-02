@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CitizenPrep USA — Citizenship Test Practice</title>
+<meta name="description" content="Practice the 2025 U.S. Citizenship Civics Test with realistic 20-question tests.">
+<style>
+:root{--navy:#0b1f3a;--blue:#1769e0;--sky:#eaf3ff;--green:#138a5b;--red:#d93025;--ink:#142033;--muted:#667085;--card:#fff;--line:#dbe4f0;--bg:#f5f8fc}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(135deg,#081a33,#123f79);color:#fff;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;gap:20px;position:sticky;top:0;z-index:5}
+.logo{font-weight:800;font-size:21px;letter-spacing:-.4px}.logo span{color:#71b7ff}
+nav button{background:transparent;border:0;color:#dcecff;margin-left:12px;font-weight:650;cursor:pointer}
+main{max-width:1120px;margin:auto;padding:42px 22px 70px}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center;padding:30px 0 42px}
+.badge{display:inline-block;background:#dcecff;color:#1355a5;padding:7px 11px;border-radius:999px;font-weight:750;font-size:13px}
+h1{font-size:clamp(38px,5vw,62px);line-height:1.02;margin:15px 0}.hero p{font-size:18px;line-height:1.6;color:#526173;max-width:680px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{border:0;border-radius:12px;padding:13px 18px;font-size:15px;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:white;color:var(--navy);border:1px solid var(--line)}
+.hero-card,.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 12px 32px rgba(18,46,80,.08)}
+.hero-card{padding:25px}.hero-card h3{margin-top:0}.stat{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line)}.stat:last-child{border:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:22px}.card h3{margin:4px 0 8px}.card p{color:var(--muted);line-height:1.55}
+.section{margin-top:28px}.section-title{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px}.section-title h2{margin:0;font-size:28px}
+.hidden{display:none!important}
+.progress-wrap{background:#dfe8f3;border-radius:999px;height:9px;overflow:hidden}.progress{height:100%;background:var(--blue);width:0;transition:.25s}
+.test-shell{max-width:820px;margin:10px auto}.test-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;color:var(--muted);font-weight:700}
+.question-card{padding:30px}.qnum{color:var(--blue);font-weight:800}.question{font-size:29px;line-height:1.25;margin:12px 0 25px}
+.option{display:block;width:100%;text-align:left;padding:16px;margin:10px 0;border:2px solid var(--line);border-radius:13px;background:#fff;cursor:pointer;font-size:16px}.option:hover{border-color:#8db7ed;background:#f8fbff}.option.selected{border-color:var(--blue);background:#edf5ff}.option.correct{border-color:var(--green);background:#eaf8f1}.option.wrong{border-color:var(--red);background:#fff0ef}
+.test-actions{display:flex;justify-content:space-between;margin-top:22px}.note{background:#fff8e8;border:1px solid #f1d58b;border-radius:12px;padding:12px;color:#755800;font-size:14px;margin-top:18px}
+.result{text-align:center;padding:35px}.score{font-size:62px;font-weight:900;color:var(--navy)}.pass{color:var(--green)}.fail{color:var(--red)}
+.review{margin-top:25px;text-align:left}.review-item{padding:15px;border-bottom:1px solid var(--line)}.review-item strong{display:block;margin-bottom:5px}
+footer{border-top:1px solid var(--line);padding:25px 6%;color:#667085;font-size:13px;background:white}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.hero-card{display:none}header{padding:15px 5%}nav button{margin-left:4px}.question{font-size:23px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Citizen<span>Prep</span> USA</div>
+  <nav>
+    <button onclick="showHome()">Home</button>
+    <button onclick="startTest()">Practice Test</button>
+    <button onclick="showStudy()">Study</button>
+  </nav>
+</header>
+
+<main>
+<section id="home">
+  <div class="hero">
+    <div>
+      <span class="badge">2025 USCIS Civics Test</span>
+      <h1>Practice for your U.S. citizenship interview.</h1>
+      <p>Take a realistic 20-question civics practice test, see your score, and review every answer. Built for simple, focused practice on desktop and mobile.</p>
+      <div class="actions">
+        <button class="btn primary" onclick="startTest()">Start Practice Test</button>
+        <button class="btn secondary" onclick="showStudy()">Study Questions</button>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Test format</h3>
+      <div class="stat"><span>Question pool</span><b>128</b></div>
+      <div class="stat"><span>Questions asked</span><b>Up to 20</b></div>
+      <div class="stat"><span>Passing score</span><b>12 / 20</b></div>
+      <div class="stat"><span>Test type</span><b>Oral</b></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><h2>What you can practice</h2></div>
+    <div class="grid">
+      <div class="card"><h3>20-question simulation</h3><p>Randomized questions with a clear progress indicator and final score.</p></div>
+      <div class="card"><h3>Review mistakes</h3><p>See the questions you missed and the accepted answers after each test.</p></div>
+      <div class="card"><h3>Study mode</h3><p>Browse the starter question bank before taking a test.</p></div>
+    </div>
+  </div>
+
+  <div class="section card" style="margin-top:24px">
+    <h3>Important</h3>
+    <p>This is an independent practice tool, not an official USCIS website. USCIS says some civics answers can change because of elections or appointments, so current answers should be checked against the official USCIS test updates before an interview.</p>
+  </div>
+</section>
+
+<section id="test" class="hidden">
+  <div class="test-shell">
+    <div class="test-top"><span id="counter">Question 1 of 20</span><span id="scoreLive">Score: 0</span></div>
+    <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+    <div class="card question-card" style="margin-top:18px">
+      <div class="qnum" id="qnum">QUESTION 1</div>
+      <div class="question" id="question"></div>
+      <div id="options"></div>
+      <div class="note">Practice note: the real civics test is oral. This version uses selectable answers to make self-practice easier.</div>
+      <div class="test-actions">
+        <button class="btn secondary" id="backBtn" onclick="prevQ()">Back</button>
+        <button class="btn primary" id="nextBtn" onclick="nextQ()">Next</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results" class="hidden">
+  <div class="test-shell">
+    <div class="card result">
+      <div style="color:#667085;font-weight:800">YOUR RESULT</div>
+      <div class="score" id="finalScore"></div>
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+      <div class="actions" style="justify-content:center">
+        <button class="btn primary" onclick="startTest()">Try Again</button>
+        <button class="btn secondary" onclick="showStudy()">Study Questions</button>
+      </div>
+    </div>
+    <div class="card review">
+      <h3 style="padding:0 15px">Review</h3>
+      <div id="review"></div>
+    </div>
+  </div>
+</section>
+
+<section id="study" class="hidden">
+  <div class="section-title"><h2>Study Questions</h2><button class="btn primary" onclick="startTest()">Practice Test</button></div>
+  <div id="studyList" class="grid"></div>
+</section>
+</main>
+
+<footer>
+  Independent study tool. Based on the 2025 USCIS civics test materials. Always verify current, changeable answers with USCIS before your interview.
+</footer>
+
+<script>
+const QUESTIONS = [
+{q:"What is the form of government of the United States?",a:["Republic","Constitution-based federal republic","Representative democracy"]},
+{q:"What is the supreme law of the land?",a:["(U.S.) Constitution"]},
+{q:"Name one thing the U.S. Constitution does.",a:["Forms the government","Defines powers of government","Defines the parts of government","Protects the rights of the people"]},
+{q:"The U.S. Constitution starts with the words “We the People.” What does “We the People” mean?",a:["Self-government","Popular sovereignty","Consent of the governed","People should govern themselves","(Example of) social contract"]},
+{q:"How are changes made to the U.S. Constitution?",a:["Amendments","The amendment process"]},
+{q:"What does the Bill of Rights protect?",a:["The basic rights of people living in the United States","The basic rights of Americans","The basic rights of people in the United States"]},
+{q:"How many amendments does the U.S. Constitution have?",a:["Twenty-seven (27)"]},
+{q:"Why is the Declaration of Independence important?",a:["It says America is free from British control","It declares our independence from Great Britain","It says the United States is free from Great Britain","It says all people are created equal"]},
+{q:"What founding document said the American colonies were free from Britain?",a:["Declaration of Independence"]},
+{q:"Name two important ideas from the Declaration of Independence and the U.S. Constitution.",a:["Equality","Liberty","Social contract","Natural rights","Limited government","Self-government"]},
+{q:"The words “Life, Liberty, and the pursuit of Happiness” are in what founding document?",a:["Declaration of Independence"]},
+{q:"What is the economic system of the United States?",a:["Capitalism","Free market economy"]},
+{q:"What is the rule of law?",a:["Everyone must follow the law","Leaders must obey the law","Government must obey the law","No one is above the law"]},
+{q:"Many documents influenced the U.S. Constitution. Name one.",a:["Declaration of Independence","Articles of Confederation","Federalist Papers","Anti-Federalist Papers","Virginia Declaration of Rights","Fundamental Orders of Connecticut","Mayflower Compact","Iroquois Great Law of Peace"]},
+{q:"There are three branches of government. Why?",a:["So one part does not become too powerful","Checks and balances","Separation of powers"]},
+{q:"Name the three branches of government.",a:["Legislative","Executive","Judicial","Congress, president, and the courts"]},
+{q:"The President of the United States is in charge of which branch of government?",a:["Executive branch"]},
+{q:"What part of the federal government writes laws?",a:["(U.S.) Congress","(U.S. or national) legislature","Legislative branch"]},
+{q:"What are the two parts of the U.S. Congress?",a:["Senate and House of Representatives","The Senate and House"]},
+{q:"Name one power of the U.S. Congress.",a:["Writes laws","Declares war","Makes the federal budget","Approves judges","Approves treaties","Confirms ambassadors"]},
+{q:"How many U.S. senators are there?",a:["One hundred (100)"]},
+{q:"How long is a term for a U.S. senator?",a:["Six (6) years"]},
+{q:"How many voting members are in the House of Representatives?",a:["Four hundred thirty-five (435)"]},
+{q:"How long is a term for a member of the House of Representatives?",a:["Two (2) years"]},
+{q:"How many senators does each state have?",a:["Two (2)"]},
+{q:"Why does each state have two senators?",a:["Equal representation","The Great Compromise","Connecticut Compromise"]},
+{q:"Why do U.S. representatives serve shorter terms than senators?",a:["To more closely follow public opinion"]},
+{q:"Who is one of your state’s U.S. senators now?",a:["Answers vary by state and current officeholder"]},
+{q:"What is the highest court in the United States?",a:["Supreme Court"]},
+{q:"How many justices are on the Supreme Court?",a:["Nine (9)"]},
+{q:"Why do Supreme Court justices serve for life?",a:["To be independent of political pressure","To limit outside influence","To serve without political pressure"]}
+];
+
+let test=[], idx=0, selected=null, score=0, answers=[];
+
+function hideAll(){["home","test","results","study"].forEach(id=>document.getElementById(id).classList.add("hidden"))}
+function showHome(){hideAll();document.getElementById("home").classList.remove("hidden")}
+function showStudy(){
+ hideAll();document.getElementById("study").classList.remove("hidden");
+ document.getElementById("studyList").innerHTML=QUESTIONS.map((x,i)=>`<div class="card"><div class="qnum">QUESTION ${i+1}</div><h3>${x.q}</h3><p><b>Accepted answers:</b><br>${x.a.join("<br>")}</p></div>`).join("");
+}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function startTest(){
+ hideAll();document.getElementById("test").classList.remove("hidden");
+ test=shuffle(QUESTIONS).slice(0,20);idx=0;score=0;answers=Array(20).fill(null);renderQ();
+}
+function renderQ(){
+ const x=test[idx];selected=answers[idx];
+ document.getElementById("counter").textContent=`Question ${idx+1} of 20`;
+ document.getElementById("scoreLive").textContent=`Score: ${score}`;
+ document.getElementById("progress").style.width=((idx+1)/20*100)+"%";
+ document.getElementById("qnum").textContent=`QUESTION ${idx+1}`;
+ document.getElementById("question").textContent=x.q;
+ document.getElementById("backBtn").disabled=idx===0;
+ const opts=shuffle(x.a);
+ document.getElementById("options").innerHTML=opts.map((o,j)=>`<button class="option ${selected===o?"selected":""}" onclick="pick(${JSON.stringify(o)})">${o}</button>`).join("");
+ document.getElementById("nextBtn").textContent=idx===19?"Finish Test":"Next";
+}
+function pick(o){selected=o;answers[idx]=o;document.querySelectorAll(".option").forEach(b=>b.classList.remove("selected"));[...document.querySelectorAll(".option")].find(b=>b.textContent===o)?.classList.add("selected")}
+function prevQ(){if(idx>0){idx--;renderQ()}}
+function nextQ(){
+ if(!selected){alert("Please select an answer.");return}
+ if(idx===19){finish();return}
+ idx++;selected=answers[idx];renderQ();
+}
+function finish(){
+ score=0;
+ answers.forEach((ans,i)=>{if(ans && test[i].a.includes(ans))score++});
+ hideAll();document.getElementById("results").classList.remove("hidden");
+ document.getElementById("finalScore").textContent=`${score} / 20`;
+ const pass=score>=12;
+ document.getElementById("resultTitle").textContent=pass?"Practice result: PASS":"Practice result: KEEP PRACTICING";
+ document.getElementById("resultTitle").className=pass?"pass":"fail";
+ document.getElementById("resultText").textContent=pass?"You reached the 12/20 practice threshold.":"You were below the 12/20 practice threshold. Review the missed questions and try again.";
+ document.getElementById("review").innerHTML=test.map((x,i)=>{
+   const ok=answers[i]&&x.a.includes(answers[i]);
+   return `<div class="review-item"><strong>${i+1}. ${x.q}</strong><span>Your answer: ${answers[i]||"No answer"}</span><br><span>${ok?"Correct":"Correct answers: "+x.a.join(" / ")}</span></div>`;
+ }).join("");
+}
+showHome();
+</script>
+</body>
+</html>
